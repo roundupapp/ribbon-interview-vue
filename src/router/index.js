@@ -16,15 +16,6 @@ const routes = [
       },
     ],
   },
-  {
-    path: "/charity/:charity_id/dashboard",
-    name: "charity-dashboard",
-    component: () => import("@/views/home/Home.vue"),
-    meta: {
-      layout: "content",
-    },
-    props: true,
-  },
 ]
 
 const router = createRouter({

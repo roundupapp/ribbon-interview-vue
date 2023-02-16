@@ -8,17 +8,47 @@
 import '@mdi/font/css/materialdesignicons.css'
 import 'vuetify/styles'
 
-// Composables
+// Vuetify
 import { createVuetify } from 'vuetify'
 
-// https://vuetifyjs.com/en/introduction/why-vuetify/#feature-guides
+// Components
+import { VBtn } from 'vuetify/components'
+
 export default createVuetify({
+  aliases: {
+    VBtnAlt: VBtn,
+  },
+  // https://next.vuetifyjs.com/features/global-configuration/
+  defaults: {
+    global: {
+      rounded: 'sm',
+    },
+    VAppBar: {
+      flat: true,
+    },
+    VBtn: {
+      color: 'primary',
+      height: 44,
+      minWidth: 190,
+    },
+    VBtnAlt: {
+      color: 'primary',
+      height: 48,
+      minWidth: 190,
+      variant: 'outlined',
+    },
+    VSheet: {
+      color: '#212121',
+    },
+  },
+  // https://next.vuetifyjs.com/features/theme/
   theme: {
+    defaultTheme: 'dark',
     themes: {
-      light: {
+      dark: {
+        dark: true,
         colors: {
-          primary: '#1867C0',
-          secondary: '#5CBBF6',
+          primary: '#1697f6',
         },
       },
     },

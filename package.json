@@ -1,11 +1,7 @@
 {
-  "name": "theme-vite-free",
+  "name": "ribbon-interview",
   "version": "1.0.2",
   "private": true,
-  "author": {
-    "name": "John Leider",
-    "email": "john@vuetifyjs.com"
-  },
   "scripts": {
     "serve": "vite preview",
     "build": "vite build",

@@ -39,117 +39,56 @@
           <v-container>
             <v-row justify="space-between">
               <v-col cols="auto">
-                <v-responsive width="350">
-                  <h2 class="text-h4">
-                    Ribbon Daily Goal
-                  </h2>
+                <h2 class="text-h4">
+                  Ribbon Donor List
+                </h2>
 
+                <p class="text-primary mt-3">
+                  In Beta now!
+                </p>
 
-                  <p class="mt-8">
-                    {{ donors }}
-                  </p>
-
-
-                  <v-btn
-                    class="mt-6"
-                    href="https://next.vuetifyjs.com/features/global-configuration/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    More Information
-                  </v-btn>
-                </v-responsive>
+                <p class="mt-3">
+                  See all those that have given in one place!
+                </p>
               </v-col>
 
-              <v-img
-                max-width="400"
-                src="https://cdn.vuetifyjs.com/store/themes/vite-free/chips-bar.png"
-              />
             </v-row>
-          </v-container>
-        </section>
-
-        <v-container>
-          <v-divider class="my-12" />
-        </v-container>
-
-        <section id="controls">
-          <v-container>
             <v-row justify="space-between">
               <v-col cols="auto">
-                <v-responsive width="350">
-                  <h2 class="text-h4">
-                    Rebuilt from the ground up
-                  </h2>
+                  <v-table v-if="donors" >
+                    <thead>
+                    <tr>
+                      <th class="text-left">
+                        Name
+                      </th>
+                      <th class="text-left">
+                        Email
+                      </th>
+                      <th class="text-left">
+                        Total Donations
+                      </th>
+                      <th class="text-left">
+                        First Donation
+                      </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr
+                      v-for="item in donors.data"
+                      :key="item.id"
+                    >
+                      <td>{{ item.full_name }}</td>
+                      <td>{{ item.email }}</td>
+                      <td>{{ item.total_donations }}</td>
+                      <td>{{ item.first_donation }}</td>
+                    </tr>
+                    </tbody>
+                  </v-table>
 
-                  <p class="text-success mt-3">
-                    Composition API
-                  </p>
 
-                  <p class="mt-3">
-                    Vuetify 3 uses the Vue composition API to build easy-to-use and feature rich components that work out of the box.
-                  </p>
 
-                  <p class="mt-8">
-                    <strong>How to use:</strong>
-
-                    Services are now accessed through <strong>use functions</strong> that follow the Vue 3 nomenclature and code styling.
-                  </p>
-
-                  <v-btn
-                    class="mt-6"
-                    href="https://next.vuetifyjs.com/introduction/why-vuetify/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    More Information
-                  </v-btn>
-                </v-responsive>
               </v-col>
 
-              <v-img
-                max-width="400"
-                src="https://cdn.vuetifyjs.com/store/themes/vite-free/slider.png"
-              />
-            </v-row>
-          </v-container>
-        </section>
-
-        <v-container>
-          <v-divider class="my-12" />
-        </v-container>
-
-        <section id="grid">
-          <v-container>
-            <v-row justify="space-between">
-              <v-col cols="auto">
-                <v-responsive width="350">
-                  <h2 class="text-h4">
-                    The most complete version yet
-                  </h2>
-
-                  <p class="text-success mt-3">
-                    Available now!
-                  </p>
-
-                  <p class="mt-3">
-                    The latest version is almost here. Use one of our free themes to get a head start!
-                  </p>
-
-                  <p class="mt-8">
-                    This theme is designed to demonstrate a basic single page application using Vuetify 3.
-                  </p>
-
-                  <v-btn class="mt-6">
-                    More Information
-                  </v-btn>
-                </v-responsive>
-              </v-col>
-
-              <v-img
-                max-width="400"
-                src="https://cdn.vuetifyjs.com/store/themes/vite-free/layout.png"
-              />
             </v-row>
           </v-container>
         </section>
@@ -163,34 +102,37 @@
           <v-container>
             <v-row justify="space-between">
               <v-col cols="auto">
-                <v-responsive
-                  class="overflow-visible"
-                  width="350"
-                >
-                  <h2 class="text-h4">
-                    Shape the future of Ribbon
+                <v-responsive width="350">
+                     <h2 class="text-h4">
+                    Show your support feature
                   </h2>
-
-                  <p class="text-success mt-3">
-                    Support Development
+            <p class="text-success mt-3">
+              Available now!
+            </p>
+                  <p class="mt-3">
+                    Easily send messages to those that have given!
                   </p>
-
-                  <strong>Become a sponsor</strong>
-
-                  <p class="mt-8">
-                    Vuetify is free to use software under the <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener noreferrer">MIT</a> License and requires an extensive amount of time to maintain. Supporting development ensures Vuetify will be actively maintained.
-                  </p>
-
-                  <v-btn-alt
-                    class="mt-6 "
-                    href="https://github.com/sponsors/johnleider"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Support now
-                  </v-btn-alt>
                 </v-responsive>
               </v-col>
+              <v-sheet width="400" class="mx-auto">
+                <v-form v-model="valid" validate-on="submit" @submit.prevent="submit">
+                  <v-textarea
+                    v-model="message"
+                    :rules="messageRules"
+                    label="Message"
+                  ></v-textarea >
+                  <v-text-field
+                    v-model="email"
+                    :rules="emailRules"
+                    label="Email"
+                  ></v-text-field>
+                  <v-text-field
+                    v-model="donor_id"
+                    label="Donor Id"
+                  ></v-text-field>
+                  <v-btn type="submit" block class="mt-2">Send</v-btn>
+                </v-form>
+              </v-sheet>
             </v-row>
           </v-container>
         </section>
@@ -216,14 +158,46 @@ import axios from "axios";
 
     data () {
       return {
-        donors: null,
+          donors: null,
+          valid: false,
+          email: '',
+        donor_id: '',
+        message: '',
+        emailRules: [
+          value => {
+            if (value) return true
 
+            return 'E-mail is required.'
+          },
+          value => {
+            if (/.+@.+\..+/.test(value)) return true
+
+            return 'E-mail must be valid.'
+          },
+        ],
+        messageRules: [
+          value => {
+            if (value) return true
+
+            return 'Message is required.'
+          },
+          // value => {
+          //   if (value?.length > 15) return true
+          //
+          //   return 'Name must be more than 15 characters.'
+          // },
+        ],
       }
     },
     mounted () {
       axios
         .get('https://interview.ribbon.giving/api/donors')
         .then(response => (this.donors = response.data))
+    },
+    methods: {
+      async submit () {
+       // TODO send message to donor
+      },
     }
   }
 </script>

@@ -169,11 +169,6 @@ import axios from "axios";
 
             return 'E-mail is required.'
           },
-          value => {
-            if (/.+@.+\..+/.test(value)) return true
-
-            return 'E-mail must be valid.'
-          },
         ],
         messageRules: [
           value => {
@@ -181,11 +176,6 @@ import axios from "axios";
 
             return 'Message is required.'
           },
-          // value => {
-          //   if (value?.length > 15) return true
-          //
-          //   return 'Name must be more than 15 characters.'
-          // },
         ],
       }
     },

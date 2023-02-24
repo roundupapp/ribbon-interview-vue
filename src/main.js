@@ -1,23 +1,30 @@
-/**
- * main.js
- *
- * Bootstraps Vuetify and other plugins then mounts the App`
- */
+/* Vue */
+import Vue from "vue";
+// import router from "./router";
+import store from "./store";
 
-// Components
-import App from './App.vue'
+Vue.config.productionTip = false;
 
-// Composables
-import { createApp } from 'vue'
+/* App sass */
+// import "./assets/style/app.scss";
 
-// Plugins
-import { registerPlugins } from '@/plugins'
-import vuetify from './plugins/vuetify'
+/* App component */
+import App from "./App";
 
-const app = createApp(App)
+import vuetify from "./plugins/vuetify";
 
-registerPlugins(app)
+/* eslint-disable no-new */
+new Vue({
+  el: "#app",
 
-app
-  .use(vuetify)
-  .mount('#app')
+  // Attach the Vue instance to the window,
+  // so it's available globally.
+  created: function () {
+    window.Vue = this;
+  },
+
+  // router,
+  store,
+  vuetify,
+  render: (h) => h(App),
+});

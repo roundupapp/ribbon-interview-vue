@@ -2,7 +2,7 @@
 
 ## What to do.
 
-* Clone the repo
+* Clone/Fork the repo
 * Create a pull request for each issue
 
 ## What not to do

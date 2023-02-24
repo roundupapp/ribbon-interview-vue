@@ -12,12 +12,7 @@
       <section id="hero">
         <v-sheet class="d-flex align-center pb-16" color="grey-darken-3">
           <v-container class="text-center">
-            <v-responsive class="mx-auto" width="500">
-              <v-img
-                src="https://app.ribbon.giving/images/logos/logo.svg"
-                height="400"
-              />
-
+            <v-responsive class="mx-auto">
               <h3 class="text-h3">Try Ribbon's all new features</h3>
 
               <p class="mt-4 text-medium-emphasis">
@@ -30,7 +25,7 @@
         </v-sheet>
       </section>
 
-      <v-sheet class="py-16">
+      <v-sheet>
         <section id="filter">
           <v-container>
             <v-row justify="space-between">
@@ -42,9 +37,9 @@
                 <p class="mt-3">See all those that have given in one place!</p>
               </v-col>
             </v-row>
-            <v-row justify="space-between">
-              <v-col cols="auto">
-                <v-table v-if="donors">
+            <v-row>
+              <v-col>
+                <table v-if="donors">
                   <thead>
                     <tr>
                       <th class="text-left">Name</th>
@@ -61,14 +56,14 @@
                       <td>{{ item.first_donation }}</td>
                     </tr>
                   </tbody>
-                </v-table>
+                </table>
               </v-col>
             </v-row>
           </v-container>
         </section>
       </v-sheet>
 
-      <v-sheet class="py-16" color="#181818">
+      <v-sheet class="py-16" color="#1818181a">
         <section id="grid">
           <v-container>
             <v-row justify="space-between">
@@ -114,7 +109,7 @@
       <v-container
         class="text-overline d-flex align-center justify-space-between"
       >
-        <div>Copyright &copy; 2023 Ribbon, LLC</div>
+        <div>Copyright &copy; 2023 Flourish Change Inc dba Ribbon</div>
 
         <v-icon icon="mdi-bank" size="x-large" />
       </v-container>

@@ -152,7 +152,7 @@ export default {
   },
   methods: {
     async submit() {
-      // TODO send message to donor
+      // Send message to server.
     },
   },
 };
